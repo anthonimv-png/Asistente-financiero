@@ -1,0 +1,8 @@
+{
+  "appId": "pe.asistentefinanciero.app",
+  "appName": "ASISTENTE FINANCIERO",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
