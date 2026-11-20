@@ -55,3 +55,29 @@ Consulta `AUDITORIA_0.2.0.md` para el alcance de las correcciones y las validaci
 Incluye vistas de control de caja e inteligencia gerencial en modo de consulta. La caja distingue únicamente Efectivo y BCP/Yape; los medios ausentes o no reconocidos permanecen como “Sin identificar”. La conciliación bancaria/efectivo no se declara completada sin extracto bancario y cierre de caja verificables. Los análisis por asesor solo se muestran si el snapshot contiene esa atribución.
 
 Esta aplicación no registra ni modifica créditos, pagos o clientes.
+
+
+## Versión 0.3.1 — renovación visual
+Se incorpora una capa de estilos premium en grafito, ámbar y naranja, con superficies glassmorphism, sombras suaves, microinteracciones y animación progresiva de tarjetas. La actualización es visual y conserva la lógica financiera y las integraciones existentes.
+
+
+## Versión 0.3.2
+Incluye navegación móvil lateral, microinteracciones y animaciones respetuosas con la preferencia de movimiento reducido. Los cambios son de interfaz y accesibilidad; la lógica financiera y las operaciones de datos permanecen sin cambios.
+
+
+### Actualización 0.4.0
+Esta versión incorpora navegación con iconos SVG, transiciones entre módulos, paneles contraíbles, selector de tendencias de 7/30 días y ajustes de rendimiento visual para Android. No modifica los cálculos financieros ni la configuración de Supabase. La revisión adicional de protección de sesiones y datos queda pendiente por decisión del usuario.
+
+## Compilación Android (APK de depuración)
+
+El ZIP fuente no incluye el proyecto Android generado ni un APK precompilado. Para crear el APK se requiere Node.js 22, Java 21 y Android SDK (Android Studio o entorno CI).
+
+En Linux/macOS, configura `ANDROID_HOME` o `ANDROID_SDK_ROOT` y ejecuta:
+
+```bash
+./scripts/build-android-debug.sh
+```
+
+El resultado esperado es `android/app/build/outputs/apk/debug/app-debug.apk`. Este APK es de depuración y no está firmado para distribución en Play Store. Para distribuirlo públicamente se debe generar una clave de firma propia y configurar un build release seguro.
+
+También se incluye `.github/workflows/android-debug-apk.yml`. Al subir el proyecto a un repositorio GitHub, se puede ejecutar desde **Actions → Build Android debug APK → Run workflow** y descargar el APK como artefacto. La compilación CI debe completarse sin errores antes de considerar el APK verificado.
