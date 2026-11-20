@@ -19,3 +19,11 @@ test('la serie omite fechas futuras, pagos inválidos, negativos y anulados', ()
 test('rechaza parámetros de fecha o calendario ausentes', () => {
   assert.throws(()=>buildDailyCollectionSeries([], {today:'17-11-2026'}), /fecha ISO/);
 });
+
+
+test('la serie de 30 días permite el nuevo selector de tendencia', () => {
+  const rows = buildDailyCollectionSeries([{date:'2026-11-01',amount:125},{date:'2026-11-17',amount:75}], {today:'2026-11-17',days:30,addDays});
+  assert.equal(rows.length,30);
+  assert.equal(rows.at(-1).amount,75);
+  assert.equal(rows.find(row=>row.date==='2026-11-01').amount,125);
+});
